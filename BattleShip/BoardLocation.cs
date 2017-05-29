@@ -11,7 +11,12 @@ namespace BattleShip
 		// properties
 
 
-		// constructor
+		// constructors
+		public BoardLocation(int x, int y)
+		{
+			X = x;
+			Y = y;
+		}
 		public BoardLocation(int x, int y, Board board)
 		{
 			X = x;
