@@ -13,10 +13,10 @@ namespace BattleShip
 		public BoardLocation Location { get; set; }
 
 		// constructor
-		public Ship(int size, BoardLocation location)
+		public Ship(int size)
 		{
 			_size = size;
-			_location = location;
+			//_location = location;
 		}
 
 		// methods

@@ -7,45 +7,25 @@ namespace BattleShip
 		static void Main()
 		{	
 			//initialize objects
-			Board p1board = new Board(Board.boardSize, Board.boardSize);
-			Board p2board = new Board(Board.boardSize, Board.boardSize);
+			Board board = new Board(Board.boardSize, Board.boardSize);
+			Ship firstShip = new Ship(1);
+			Player player1 = new Player();
 
-			// One hot mess
-			int xTest1 = 0;
-			int yTest1 = 0;
-			int xTest2 = 0;
-			int yTest2 = 0;
+			try
+			{
+				player1.SetShipLocation(firstShip, board);
 
-			Console.Write("Player 1, Enter your ship's locations: ");
-			Console.Write("Test Ship X: ");
-			string xInput = Console.ReadLine();
-			xTest1 = Int32.Parse(xInput);
-			Console.Write("Test Ship Y: ");
-			string yInput = Console.ReadLine();
-			yTest1 = Int32.Parse(yInput);
-
-			BoardLocation testShipLocation = new BoardLocation(xTest1, yTest1);
-
-			Console.Write("Player 2, Enter your ship's locations: ");
-			Console.Write("Test Ship X: ");
-			string xInput2 = Console.ReadLine();
-			xTest2 = Int32.Parse(xInput2);
-			Console.Write("Test Ship Y: ");
-			string yInput2 = Console.ReadLine();
-			yTest2 = Int32.Parse(yInput2);
-
-			BoardLocation testShipLocation2 = new BoardLocation(xTest2, yTest2);
+				BoardLocation location = firstShip.Location;
+				Console.WriteLine("Ship is set to location " + location.X + " ," + location.Y);		// NOT WORKING
 
 
-
-			Ship firstShipP1 = new Ship(1, testShipLocation);
-			Ship firstShipP2 = new Ship(1, testShipLocation2);
-
-			Console.WriteLine("TEST. Ship Location 1: " + testShipLocation);
-			Console.WriteLine("TEST. Ship Location 2: " + testShipLocation2);
+			}
+			catch (OutOfBoundsException ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
 
 			Console.Read();
-
 			// Player player1 = new Player;
 			// Player player2 = new Player;
 
